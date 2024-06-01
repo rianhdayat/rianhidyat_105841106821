@@ -1,9 +1,39 @@
-import { StyleSheet, Text, View} from 'react-native'
+import { StyleSheet, Text, View, Image} from 'react-native'
 import React from 'react'
 
 const App = () => {
   return (
-   <View style={{flex:1}}>
+   <View style={{
+    flex:1,
+    backgroundColor:'black'}}>
+    <View style>
+      <Text style={{
+        fontSize:30,
+        textAlign:'center',
+        top: 300      ,
+        bottom: 0,
+        justifyContent:'center',
+        fontSize: 50,
+        fontFamily: 'inkfree',  
+        color: 'red',
+        
+      }}>
+        adakah coto</Text>
+    </View>
+    <View style={{
+      flex:1,
+      alignItems:'center',
+      justifyContent:'center',
+      top: 200,
+
+    }}>
+      <Image source={require('./assets/coto.png')} style={{
+        width:200,
+        height:200,
+        resizeMode:'contain'
+        
+      }}/>
+      </View>
       <View style={{
         flex:1,
         alignItems:'flex-end',
@@ -14,31 +44,35 @@ const App = () => {
       }}>
         <View style={{
           backgroundColor:'red',
-          width:120,
-          height:80,
+          width:80,
+          height:40,
           justifyContent:'center',
-          borderRadius:5
+          borderRadius:25,
+          
         }}>
           <Text style={{
             textAlign:'center',
-            fontSize:30,
-            color:'white'}}>
+            fontSize:15,
+            color:'white'
+            
+            }}>
               Login</Text>
         </View>
+
         <View style={{
-          backgroundColor:'blue',
-          width:120,
-          height:80,
+          backgroundColor:'red',
+          width:80,
+          height:40,
           justifyContent:'center',
           borderRadius:25
         }}>
           <Text style={{
             textAlign:'center',
-            fontSize:30,
+            fontSize:15,
             color:'white'}}>
               Register</Text>
         </View>
-        
+
       </View>
    </View>
   )
