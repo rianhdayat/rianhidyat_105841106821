@@ -2,6 +2,27 @@ import { StyleSheet, Text, View, Image} from 'react-native'
 import React from 'react'
 
 const App = () => {
+  const ButtonCostum = ({color, text}) => {
+    return (
+      <View style={{
+        backgroundColor: color,
+        width: 80,
+        height: 50,
+        borderRadius: 20,
+        justifyContent: 'center',
+      }}>
+        <Text style={{
+          textAlign: 'center',
+          color: 'white',
+          fontSize: 20,
+          fontFamily: 'inkfree'
+        }}>
+          {text}
+        </Text>
+      </View>
+    )
+  }
+
   return (
    <View style={{
     flex:1,
@@ -43,36 +64,17 @@ const App = () => {
         marginBottom:100
       }}>
         <View style={{
-          backgroundColor:'red',
+          backgroundColor:'color',
           width:80,
           height:40,
           justifyContent:'center',
           borderRadius:25,
-          
+          flexDirection:'row',
+          flex:1,    
         }}>
-          <Text style={{
-            textAlign:'center',
-            fontSize:15,
-            color:'white'
-            
-            }}>
-              Login</Text>
+          <ButtonCostum color='red' text='LOGIN'/>
+          <ButtonCostum color='blue' text='SIGN UP'/>
         </View>
-
-        <View style={{
-          backgroundColor:'red',
-          width:80,
-          height:40,
-          justifyContent:'center',
-          borderRadius:25
-        }}>
-          <Text style={{
-            textAlign:'center',
-            fontSize:15,
-            color:'white'}}>
-              Register</Text>
-        </View>
-
       </View>
    </View>
   )
