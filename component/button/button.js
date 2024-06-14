@@ -5,7 +5,7 @@ import ButtonCostum from './component/button/button'
 const App = () => {
 
 
-
+  
   return (
    <View style={{
     flex:1,
