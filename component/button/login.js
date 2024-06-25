@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
 import React from "react";
+import login from './component/button/login'
 
 
 const App = () => {
@@ -16,7 +17,8 @@ const App = () => {
         paddingLeft: 10,
         marginBottom: 10,
         margin: 10,
-      }}/>
+      }}
+      />
     )
   }
  const ButtonCustom = ({text, color}) => {
@@ -51,23 +53,51 @@ const App = () => {
     marginLeft: 10,
     
    }}>
-      Forgot Password?
+      Login
    </Text>
-   <Text style={{
-      fontSize: 14,
-      lineHeight: '20px',
+    <TextInputCustom name="Username" color="black"/>
+    <TextInputCustom name="Password" color="black"/>
+    
+    <Text style={{
+      fontSize: 12,
+      marginTop: 20,
       marginLeft: 10,
-      marginBottom: 10,
-      fontFamily: 'metropolis',
+      marginBottom: 10,  
+      alignSelf: 'flex-end',
     }}>
-      Please enter your email address. You will receive <br/>
-      a link to create a new password via email. 
-   </Text>
-    <TextInputCustom name="Email" color="red"/>
-    <ButtonCustom text="Send" color="red"/>
+      Forgot your Password?
+    </Text>
+    <ButtonCustom text="Login" color="red"/>
+    <Text style={{
+      marginTop: 70,
+      textAlign: 'center',   
+    }}>
+      Or Sign Up With Social account 
+    </Text>
+    <View style={{
+      flexDirection: 'row',
+      marginTop: 20,
+      justifyContent: 'center',
+      marginHorizontal: 8,
+    }}>
+      <Image
+        source={require('./assets/google.png')}
+        style={{
+          width: 50,
+          height: 50,
+          padding: 20,
+          borderRadius: 10,
+          marginRight: 20,
+        }}
+        />
+      <Image
+        source={require('./assets/facebook.png')}
+        style={{width: 50, height: 50, borderRadius: 10, marginRight: 20}}>
+      </Image>
+    </View>
   </View>
  )
 
 }
 
-export default  App;
+export default  login;
