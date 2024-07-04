@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
 import React from "react";
-import login from './component/button/login'
+import login from './LoginPage'
 
 
-const App = () => {
+const LoginPage = () => {
    
   const TextInputCustom = ({name, color}) => {
     return (
@@ -47,7 +47,8 @@ const App = () => {
   <View>
    <Text style={{
     fontSize: 20,
-    fontWeight: 'bold',
+    
+    fontFamily:'metroBold',
     marginBottom: 10,
     marginTop: 70,
     marginLeft: 10,
@@ -100,4 +101,4 @@ const App = () => {
 
 }
 
-export default  login;
+export default  LoginPage;
