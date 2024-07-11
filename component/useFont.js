@@ -15,12 +15,12 @@ export default function App() {
     return <Text>Font Tidak Ditemukan..</Text>
   }
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text style={{fontFamily: 'MetroBlack', fontSize: 24}}>Font Metropolis Black</Text>
-      <Text style={{fontFamily: 'MetroBold', fontSize: 24}}>Font Metropolis Bold</Text>
-      <Text style={{fontFamily: 'MetroLight', fontSize: 24}}>Font Metropolis Light</Text>
-      <Text style={{fontFamily: 'MetroMedium', fontSize: 24}}>Font Metropolis Medium</Text>
-      <Text style={{fontFamily: 'MetroSemibold', fontSize: 24}}>Font Metropolis SemiBold</Text>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text style={{ fontFamily: 'MetroBlack', fontSize: 24 }}>Font Metropolis Black</Text>
+      <Text style={{ fontFamily: 'MetroBold', fontSize: 24 }}>Font Metropolis Bold</Text>
+      <Text style={{ fontFamily: 'MetroLight', fontSize: 24 }}>Font Metropolis Light</Text>
+      <Text style={{ fontFamily: 'MetroMedium', fontSize: 24 }}>Font Metropolis Medium</Text>
+      <Text style={{ fontFamily: 'MetroSemibold', fontSize: 24 }}>Font Metropolis SemiBold</Text>
       <Text>Font Biasa</Text>
     </View>
   )
