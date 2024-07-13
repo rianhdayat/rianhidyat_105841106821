@@ -49,7 +49,7 @@ const ForgotPasswordPage = () => {
                     fontSize: 20,
                     fontWeight: "bold",
                     marginLeft: 10,
-                    top:35
+                    top: 35
                 }}>
                 Forgot Password
             </Text>
@@ -58,7 +58,7 @@ const ForgotPasswordPage = () => {
                     height: 50,
                     width: '100%',
                     top: 50,
-                    left:20
+                    left: 20
                 }}>
                 <Text>
                     Please enter your email address. You will receive a link to create a new password via email.
@@ -71,7 +71,7 @@ const ForgotPasswordPage = () => {
                 width: '100%',
                 top: 50,
             }}>
-            <TextInputCustom name="Email" color="red" />
+                <TextInputCustom name="Email" color="red" />
 
             </View>
             <View style={{
@@ -81,7 +81,7 @@ const ForgotPasswordPage = () => {
                 width: '100%',
                 top: 70,
             }}>
-            <ButtonCustom text="SEND" color="red" />
+                <ButtonCustom text="SEND" color="red" />
             </View>
         </View>
     );
