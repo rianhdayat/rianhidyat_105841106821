@@ -48,7 +48,7 @@ const TextInputCustom = ({name, color}) => {
     </View>
   )
 }
-const App = ({navigation}) => {
+const LoginPage = ({navigation}) => {
   const [dapatFont] = useFonts({
     'MetroBlack': require('./assets/fonts/Metropolis-Black.otf'),
     'MetroBold': require('./assets/fonts/Metropolis-Bold.otf'),
@@ -116,7 +116,24 @@ return (
       width:'100%',
       fontFamily:'MetroSemiBold'
     }}>
-      <ButtonCustom color='red' text='SIGN UP'/>
+      <TouchableOpacity onPress={() => navigation.navigate('MyTabs')} style={{
+        width:'90%',
+        height:50,
+        backgroundColor:'red',
+        borderRadius:20,
+        alignItems:'center',
+        justifyContent:'center',
+        shadowColor:'black',
+        shadowOpacity:0.2,
+        shadowRadius:1,
+        shadowOffset:{width:0, height:1},
+      }}>
+        <Text style={{
+          color:'white',
+          fontSize:16,
+          fontFamily:'MetroSemibold',
+        }}>LOGIN</Text>
+      </TouchableOpacity>
     </View>
 
     <View style={{
@@ -161,8 +178,142 @@ return (
 )
 }
 
-export default  App;
+export default  LoginPage;
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+// import * as React from 'react';
+// import { View, Text, Button, Image } from 'react-native';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createNativeStackNavigator } from '@react-navigation/native-stack';
+// import LoginPage from './LoginPage';
+// import SignUpPage from './SignUpPage';
+// import ForgotPassword from './ForgotPasswordPage';
+// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import HomeAktif from './assets/home-aktif.jpg';
+// import HomeInaktif from './assets/home-inaktif.jpg';
+// import Shop from './assets/shop.jpg';
+// import ShopInaktif from './assets/shop-inaktif.jpg';
+// import bagAKtif from './assets/bag-aktif.jpg';
+// import bagInaktif from './assets/bag-inaktif.jpg';
+// import favoriteAktif from './assets/favorite-aktif.jpg';
+// import favoriteInaktif from './assets/favorite-inaktif.jpg';
+// import profileAktif from './assets/profile-aktif.jpg';
+// import profileInaktif from './assets/profile-inaktif.jpg';
+
+
+
+// const Tab = createBottomTabNavigator();
+
+// function MyTabs() {
+//   return (
+//     <Tab.Navigator>
+//       <Tab.Screen
+//         name="Home"
+//         component={LoginPage}
+//         options={{
+//           headerShown: false,
+//           tabBarIcon: ({ focused }) => (
+//             <Image
+//             source={focused ? HomeAktif : HomeInaktif}
+//             style={{ width: 40, height: 40 }}
+//             />
+//           ),
+//         }}
+//       />
+//         <Tab.Screen
+//           name="Shop"
+//           component={SignUpPage}
+//           options={{
+//             headerShown: false,
+//             tabBarIcon: ({ focused }) => (
+//               <Image
+//                 source={focused ? Shop : ShopInaktif}
+//                 style={{ width: 40, height: 40 }}
+//               />
+//             ),
+//           }}
+//         />
+//         <Tab.Screen
+//           name="Bag"
+//           component={LoginPage}
+//           options={{
+//             headerShown: false,
+//             tabBarIcon: ({ focused }) => (
+//               <Image
+//                 source={focused ? bagAKtif : bagInaktif}
+//                 style={{ width: 40, height: 40 }}
+//               />
+//             ),
+//           }}
+//         />
+//         <Tab.Screen
+//           name="Favorite"
+//           component={ForgotPassword}
+//           options={{
+//             headerShown: false,
+//             tabBarIcon: ({ focused }) => (
+//               <Image
+//                 source={focused ? favoriteAktif : favoriteInaktif}
+//                 style={{ width: 40, height: 40 }}
+//               />
+//             ),
+//           }}
+//         />
+//           <Tab.Screen
+//           name="Profile"
+//           component={ForgotPassword}
+//           options={{
+//             headerShown: false,
+//             tabBarIcon: ({ focused }) => (
+//               <Image
+//                 source={focused ? profileAktif : profileInaktif}
+//                 style={{ width: 40, height: 40 }}
+//               />
+//             ),
+//           }}
+//         />
+//     </Tab.Navigator>
+//   );
+// }
+
+// function HomeScreen({ navigation }) {
+//   return (
+//     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+//       <Text>Home Screen</Text>
+//       <Button
+//         title="Go to Login"
+//         onPress={() => navigation.navigate('Login')}
+//       />
+//     </View>
+//   );
+// }
+
+// const Stack = createNativeStackNavigator();
+
+// function App() {
+//   return (
+//     <NavigationContainer>
+//       <Stack.Navigator>
+//         <Stack.Screen name="Home" component={MyTabs} />
+//         <Stack.Screen name="SignUp" component={SignUpPage} />
+//         <Stack.Screen name="Login" component={LoginPage} />
+//         <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+//         <Stack.Screen name="HomeScreen" component={HomeScreen} />
+//       </Stack.Navigator>
+//     </NavigationContainer>
+//   );
+// }
+
+// export default App;
