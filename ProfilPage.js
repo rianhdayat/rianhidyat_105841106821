@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const ProfilPage = () => {
+const Favorites = () => {
   return (
     <View>
-      <Text>ProfilPage</Text>
+      <Text>Favorites</Text>
     </View>
   )
 }
 
-export default ProfilPage
+export default Favorites
