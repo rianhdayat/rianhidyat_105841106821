@@ -45,7 +45,7 @@ const Api = () => {
 
   const deletePost = (id) => {
     axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
-      .then(() => setData(data.filter(post => post.id !== id)))
+      .then(() => setData(data.filter(post => post.id !== id)))  
       .catch(error => console.error(error));
   };
 
