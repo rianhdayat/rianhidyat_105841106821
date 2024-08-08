@@ -1,114 +1,71 @@
-import { StyleSheet, Text, View, Image, TextInput } from "react-native-web";
-import React from "react";
+import React, { useState } from 'react';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 
+const ForgotPasswordPage = ({ navigation }) => {
+    const [email, setEmail] = useState('');
 
-const ForgotPasswordPage = () => {
-    const TextInputCustom = ({ name, color }) => {
-        return (
-            <TextInput
-                placeholder={`Masukan ${name}`}
-                style={{
-                    width: '90%',
-                    height: 54,
-                    borderWidth: 1,
-                    borderColor: color,
-                    paddingLeft: 10,
-                    marginBottom: 10,
-                    margin: 10,
-                    minHeight: 50,
-                }}
-            />
-        );
-    };
-    const ButtonCustom = ({ text, color }) => {
-        return (
-            <View
-                style={{
-                    width: '90%',
-                    height: 50,
-                    backgroundColor: color,
-                    justifyContent: "center",
-                    borderRadius: 20,
-                    alignSelf: "center",
-                    alignItems: "center",
-                    marginBottom: 10,
-                }}>
-                <Text
-                    style={{
-                        textAlign: "flex-start",
-                        fontWeight: "bold",
-                    }}>{text}
-                </Text>
-            </View>
-        )
-    }
     return (
-        <View>
-            <Text
-                style={{
-                    fontSize: 20,
-                    fontWeight: "bold",
-                    marginLeft: 10,
-                    top: 35
-                }}>
-                Forgot Password
-            </Text>
-            <View
-                style={{
-                    height: 50,
-                    width: '100%',
-                    top: 50,
-                    left: 20
-                }}>
-                <Text>
-                    Please enter your email address. You will receive a link to create a new password via email.
-                </Text>
-            </View>
-            <View style={{
-                flex: 1,
-                justifyContent: 'center',
-                alignItems: 'center',
-                width: '100%',
-                top: 50,
-            }}>
-                <TextInputCustom name="Email" color="red" />
-
-            </View>
-            <View style={{
-                flex: 1,
-                justifyContent: 'flex-end',
-                alignItems: 'center',
-                width: '100%',
-                top: 70,
-            }}>
-                <ButtonCustom text="SEND" color="red" />
-            </View>
+        <View style={styles.container}>
+            <Text style={styles.title}>Forgot Password</Text>
+            <TextInput
+                style={styles.input}
+                placeholder="Email"
+                placeholderTextColor="#a5a5a5"
+                onChangeText={(text) => setEmail(text)}
+                value={email}
+            />
+            <TouchableOpacity style={styles.button} onPress={() => { /* handle forgot password */ }}>
+                <Text style={styles.buttonText}>Reset Password</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+                <Text style={styles.linkText}>Back to Login</Text>
+            </TouchableOpacity>
         </View>
     );
-}
+};
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#121212',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 20,
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: '#fff',
+        marginBottom: 20,
+        textAlign: 'center',
+    },
+    input: {
+        width: '100%',
+        padding: 15,
+        marginBottom: 10,
+        backgroundColor: '#1e1e1e',
+        borderRadius: 25,
+        color: '#fff',
+    },
+    button: {
+        backgroundColor: '#fff',
+        paddingVertical: 10,
+        paddingHorizontal: 30,
+        borderRadius: 25,
+        marginTop: 20,
+        marginBottom: 20,
+        width: '100%',
+    },
+    buttonText: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#121212',
+        textAlign: 'center',
+    },
+    linkText: {
+        color: '#a5a5a5',
+        marginTop: 10,
+    },
+});
+
 export default ForgotPasswordPage;
-
-
-
-
-
-// const Tab = createBottomTabNavigator();
-
-// function MyTabs() {
-//   return (
-//     <Tab.Navigator>
-//       <Tab.Screen
-//         name="Home"
-//         component={HomeScreen}
-//         options={{
-//           headerShown: false, tabBarIcon: ({ focused }) => (
-//             <image
-//               source= {focused ? HomeAktif : HomeInaktif}
-//               style={{ width: 20, height: 20 }}
-//               />
-//           )
-//         }}
-//         />
-//     </Tab.Navigator>
-//   );
-// }

@@ -1,45 +1,50 @@
-// import * as React from 'react';
-// import { NavigationContainer } from '@react-navigation/native';
-// import { createNativeStackNavigator } from '@react-navigation/native-stack';
-// import LoginPage from './LoginPage';
-// import SignUpPage from './SignUpPage';
-// import ForgotPassword from './ForgotPasswordPage';
-// import MyTabs from './myTabs';
-// import HomeScreen from './HomeScreen';
-// import ShopPage from './ShopPage';
-
-// const Stack = createNativeStackNavigator();
-// function App() {
-//   return (
-//     <NavigationContainer>
-//       <Stack.Navigator
-//         initialRouteName='LoginPage'>
-//         <Stack.Screen name="Login" component={LoginPage} />
-//         <Stack.Screen name="MyTabs" component={MyTabs} />
-//         <Stack.Screen name="Home" component={HomeScreen} />
-//         <Stack.Screen name="SignUp" component={SignUpPage} />
-//         <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
-//         <Stack.Screen name="HomeScreen" component={HomeScreen} />
-//         <Stack.Screen name="ShopPage" component={ShopPage} />
-//       </Stack.Navigator>
-//     </NavigationContainer>
-//   );
-// }
-// export default App;
-
-import React from 'react';
+import 'react-native-gesture-handler';
+import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from './HomeScreen';
+import SplashScreen from './SplashScreen';
+import LoginPage from './LoginPage';
+import SignUpPage from './SignUpPage';
+import ForgotPasswordPage from './ForgotPasswordPage';
+import MyTabs from './MyTabs';
 import DetailScreen from './DetailScreen';
 
 const Stack = createStackNavigator();
 
 const App = () => {
+  const [cartItems, setCartItems] = useState([]);
+  const [favoriteItems, setFavoriteItems] = useState([]);
+
+  const addToCart = (item) => {
+    setCartItems([...cartItems, item]);
+  };
+
+  const toggleFavorite = (item) => {
+    if (favoriteItems.includes(item.id)) {
+      setFavoriteItems(favoriteItems.filter(fav => fav !== item.id));
+    } else {
+      setFavoriteItems([...favoriteItems, item.id]);
+    }
+  };
+
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Navigator initialRouteName="Splash">
+        <Stack.Screen name="Splash" component={SplashScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Login" component={LoginPage} />
+        <Stack.Screen name="SignUp" component={SignUpPage} />
+        <Stack.Screen name="ForgotPassword" component={ForgotPasswordPage} />
+        <Stack.Screen name="MyTabs">
+          {props => (
+            <MyTabs 
+              {...props} 
+              cartItems={cartItems} 
+              favoriteItems={favoriteItems} 
+              addToCart={addToCart} 
+              toggleFavorite={toggleFavorite} 
+            />
+          )}
+        </Stack.Screen>
         <Stack.Screen name="Detail" component={DetailScreen} />
       </Stack.Navigator>
     </NavigationContainer>
@@ -47,4 +52,3 @@ const App = () => {
 };
 
 export default App;
-

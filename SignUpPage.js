@@ -1,175 +1,89 @@
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
-import React from "react";
-import { useFonts } from 'expo-font';
+import React, { useState } from 'react';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 
-const TextInputCustom = ({ name, color }) => {
-  return (
-    <TextInput
-      placeholder={`Masukan ${name}`}
-      style={{
-        width: '90%',
-        height: 64,
-        borderWidth: 1,
-        borderColor: color,
-        alignSelf: 'center',
-        marginBottom: 10,
-        alignItems: 'center',
-        padding: 10,
-        color: color,
-        backgroundColor: 'white',
-        shadowRadius: 1,
-        shadowColor: 'black',
-        shadowOpacity: 0.2,
-        minHeight: 50,
+const SignUpPage = ({ navigation }) => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
-      }}
-    />
-  )
-}
-const ButtonCustom = ({ text, color }) => {
-  return (
-    <View style={{
-      width: '90%',
-      height: 50,
-      backgroundColor: color,
-      justifyContent: 'center',
-      borderRadius: 20,
-      alignItems: 'center',
+    return (
+        <View style={styles.container}>
+            <Text style={styles.title}>Sign Up</Text>
+            <TextInput
+                style={styles.input}
+                placeholder="Email"
+                placeholderTextColor="#a5a5a5"
+                onChangeText={(text) => setEmail(text)}
+                value={email}
+            />
+            <TextInput
+                style={styles.input}
+                placeholder="Password"
+                placeholderTextColor="#a5a5a5"
+                secureTextEntry
+                onChangeText={(text) => setPassword(text)}
+                value={password}
+            />
+            <TextInput
+                style={styles.input}
+                placeholder="Confirm Password"
+                placeholderTextColor="#a5a5a5"
+                secureTextEntry
+                onChangeText={(text) => setConfirmPassword(text)}
+                value={confirmPassword}
+            />
+            <TouchableOpacity style={styles.button} onPress={() => { /* handle sign up */ }}>
+                <Text style={styles.buttonText}>Sign Up</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+                <Text style={styles.linkText}>Already have an account? Login</Text>
+            </TouchableOpacity>
+        </View>
+    );
+};
 
-    }}>
-      <Text style={{
-        textAlign: 'flex-start',
-        fontFamily: 'MetroSemibold',
-        fontSize: 16,
-      }}>{text}
-      </Text>
-    </View>
-  )
-}
-
-const SignUpPage = ({navigation}) => {
-
-  const [dapatFont] = useFonts({
-    'MetroBlack': require('./assets/fonts/Metropolis-Black.otf'),
-    'MetroBold': require('./assets/fonts/Metropolis-Bold.otf'),
-    'MetroLight': require('./assets/fonts/Metropolis-Light.otf'),
-    'MetroMedium': require('./assets/fonts/Metropolis-Medium.otf'),
-    'MetroSemibold': require('./assets/fonts/Metropolis-SemiBold.otf'),
-  });
-
-  if (!dapatFont)
-    return <Text>Font Tidak Ditemukan..</Text>
-
-  return (
-    <View style={{
-      flex: 1,
-      backgroundColor: 'F5F5F5'
-    }}>
-
-      <View style={{
+const styles = StyleSheet.create({
+    container: {
         flex: 1,
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start',
-        paddingLeft: 14,
-        top: 35
-      }}>
-        <Text style={{
-          lineHeight: 34,
-          fontFamily: 'MetroBold',
-          fontSize: 34,
-        }}>
-          Sign Up
-        </Text>
-
-      </View>
-
-      <View style={{
-        flex: 1,
-        width: '100%',
-        bottom: 20,
-        alignItems: 'center',
-        alignSelf: 'center',
-        fontFamily: 'MetroMedium',
-      }}>
-        <TextInputCustom name='Name' color='#666666' />
-        <TextInputCustom name='Email' color='#666666' />
-        <TextInputCustom name='Password' color='#666666' />
-      </View>
-
-      <View style={{
-        flex: 1,
-        color: '#666666',
-        alignItems: 'flex-end',
-        right: 25,
-        top:10
-      }}>
-        <TouchableOpacity onPress={() => navigation.navigate('Login')}> 
-          <Text style={{
-            fontSize: 14,
-            fontFamily: 'MetroMedium',
-            
-          }}>
-            Already have an account? Sign In
-          </Text>
-        </TouchableOpacity>
-        
-      </View>
-
-      <TouchableOpacity>
-      <View style={{
-        flex: 1,
+        backgroundColor: '#121212',
         justifyContent: 'center',
         alignItems: 'center',
-        bottom: 100,
+        padding: 20,
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: '#fff',
+        marginBottom: 20,
+        textAlign: 'center',
+    },
+    input: {
         width: '100%',
-        fontFamily: 'MetroSemiBold'
-      }}>
-        <ButtonCustom color='red' text='SIGN UP' />
-      </View>
-      </TouchableOpacity>
+        padding: 15,
+        marginBottom: 10,
+        backgroundColor: '#1e1e1e',
+        borderRadius: 25,
+        color: '#fff',
+    },
+    button: {
+        backgroundColor: '#fff',
+        paddingVertical: 10,
+        paddingHorizontal: 30,
+        borderRadius: 25,
+        marginTop: 20,
+        marginBottom: 20,
+        width: '100%',
+    },
+    buttonText: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#121212',
+        textAlign: 'center',
+    },
+    linkText: {
+        color: '#a5a5a5',
+        marginTop: 10,
+    },
+});
 
-      <View style={{
-        bottom: 50,
-        alignItems: 'center',
-      }}>
-        
-        <Text style={{
-          fontFamily: 'MetroMedium',
-        }}>Or sign with your social account</Text>
-      </View>
-
-      <View style={{
-        flexDirection: 'row',
-        alignSelf: 'center',
-        bottom: 30,
-        columnGap: 20
-      }}>
-        <View style={{
-          borderRadius: 10,
-          padding: 10,
-        }}>
-          <Image source={require('./assets/google.png')} style={{
-            width: 50,
-            height: 30,
-            resizeMode: 'contain',
-          }} />
-        </View>
-
-        <View style={{
-          borderRadius: 20,
-          padding: 10,
-        }}>
-          <Image source={require('./assets/facebook.png')} style={{
-            width: 50,
-            height: 30,
-            resizeMode: 'contain',
-          }} />
-        </View>
-      </View>
-    </View>
-  )
-}
 export default SignUpPage;
-
-
-
